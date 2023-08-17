@@ -1,5 +1,7 @@
 # README
 
+# Acessar a aplicação em: [localhost:3000](localhost:3000)
+
 ## Para iniciar o projeto:
 
 ### docker-compose up web
