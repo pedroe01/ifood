@@ -9,3 +9,7 @@
 ### docker-compose build web
 
 ### (Pode ser necessário caso uma nova gem for adicionada ou se forem feitas alterações no Dockerfile)
+
+## Para executar algum comando dentro do container:
+
+### docker-compose run --rm web (comando)
