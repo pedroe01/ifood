@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Para iniciar o projeto:
 
-Things you may want to cover:
+### docker-compose up web
 
-* Ruby version
+##Se for necessário fazer o build da aplicação novamente:
 
-* System dependencies
+### docker-compose build web
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###(Pode ser necessário caso uma nova gem for adicionada ou se forem feitas alterações no Dockerfile)
