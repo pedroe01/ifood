@@ -6,6 +6,10 @@
 
 ### docker-compose up web
 
+## Se for necessário fazer um migration no bd (ActiveRecord::PendingMigrationError):
+
+### docker-compose run --rm web rails db:migrate
+
 ## Se for necessário fazer o build da aplicação novamente:
 
 ### docker-compose build web
