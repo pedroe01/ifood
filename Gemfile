@@ -82,3 +82,13 @@ gem "simple_form"
 gem "devise"
 
 gem "bcrypt"
+
+
+# Using Omniauth to login with Facebook and Google
+gem "omniauth"
+
+gem "omniauth-google-oauth2"
+
+gem "omniauth-facebook"
+
+gem "omniauth-rails_csrf_protection"

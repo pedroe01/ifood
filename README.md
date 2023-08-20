@@ -2,6 +2,11 @@
 
 # Acessar a aplicação em: [localhost:3000](localhost:3000)
 
+# Configurando a aplicação pela primeira vez:
+
+- 1. docker-compose build web
+- 2. docker-compose run --rm web rails db:migrate
+
 ## Para iniciar o projeto:
 
 ### docker-compose up web
