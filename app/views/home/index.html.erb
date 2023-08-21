@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">iFood</a>
+  <%= image_tag('/assets/logo.png', width: "5%", class: "mx-2") %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,25 +7,30 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Entregador</span></a>
+        <a class="nav-link btn btn-light m-1" href="#">Entregador</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Restaurante e Mercado</a>
+        <a class="nav-link btn btn-light m-1" href="#">Restaurante e Mercado</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Carreiras</a>
+        <a class="nav-link btn btn-light m-1" href="#">Carreiras</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">iFood Card</a>
+        <a class="nav-link btn btn-light m-1" href="#">iFood Card</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-    <% if user_signed_in? %>
-      <li><%= button_to "Logout", destroy_user_session_path, method: :get %> </li>
-    <% else %>
-      <li><%= button_to "Entrar", new_user_session_path %> </li>
-      <li><%= button_to "Cadastre-se", new_user_registration_path, method: :get %>
-    <% end %>
   </div>
+  <ul class="nav navbar-nav navbar-right">
+  <% if user_signed_in? || current_user %>
+  <%= button_to "Editar Dados", edit_user_registration_path, class: "btn btn-light m-1" %>
+    <li><%= button_to "Logout", destroy_user_session_path, method: :get, class: "btn btn-outline-danger m-1" %> </li>
+  <% else %>
+    <li><%= button_to "Entrar", new_user_session_path, class: "btn btn-danger" %> </li>
+    <li><%= button_to "Cadastre-se", new_user_registration_path, method: :get, class: "btn btn-outline-danger mx-2" %>
+  <% end %>
+  </ul>
+  <% if current_user %>
+    <%= image_tag(current_user.avatar_url, width: "5%", class: "mx-2") %>
+  <% end %>
 </nav>
 <p>Faça mercado no iFood</p>
