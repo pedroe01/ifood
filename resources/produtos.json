@@ -1,0 +1,17 @@
+[
+	{
+		"nome" : "Bolo de chocolate",
+		"img" : "https://static.itdg.com.br/images/360-240/5df1a91c8a4ea09243af6822b9970314/318292-original.jpg",
+		"qtd" : 5
+	},
+	{
+		"nome" : "Bolo de cenoura",
+		"img" : "https://static.itdg.com.br/images/360-240/43a6beb1f4bf85d4283e846511e62e49/5047-original.jpg",
+		"qtd" : 5
+	},
+	{
+		"nome" : "Picanha na brasa",
+		"img" : "https://static.itdg.com.br/images/360-240/cdbdc8774a5bf27962a8c732f3b48e94/76326-original.jpg",
+		"qtd" : 3
+	}
+]

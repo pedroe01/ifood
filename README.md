@@ -16,13 +16,13 @@ Nossa aplicação foi preparada desde o início para ser executada em contêiner
 
 <details>
 <summary>Como subir a aplicação em Docker</summary>
-  
+
 # Acessar a aplicação em: [localhost:3000](localhost:3000)
 
 # Configurando a aplicação pela primeira vez:
 
 - 1. `docker-compose build web`
-- 2. `docker-compose run --rm web rails db:migrate`
+- 2. `docker-compose run --rm web rails db:migrate db:seed`
 
 ## Para iniciar o projeto:
 

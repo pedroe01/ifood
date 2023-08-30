@@ -34,3 +34,12 @@
   <% end %>
 </nav>
 <p>Faça mercado no iFood</p>
+
+<% if user_signed_in? || current_user %>
+  <div class="d-flex justify-content-center">
+    <div class="form-outline">
+      <input type="search" id="form1" class="form-control" placeholder="Digite o nome do produto" aria-label="Search" />
+    </div>
+    
+  </div>
+<% end %>
