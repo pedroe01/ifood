@@ -1,0 +1,63 @@
+<%# <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Ai fudi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav> %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= image_tag('/assets/logo.png', width: "5%", class: "mx-2") %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link btn btn-light m-1" href="#">Entregador</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn btn-light m-1" href="#">Restaurante e Mercado</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn btn-light m-1" href="#">Carreiras</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn btn-light m-1" href="#">iFood Card</a>
+    </li>
+  </ul>
+</div>
+<ul class="nav navbar-nav navbar-right">
+  <% if user_signed_in? || current_user %>
+    <%= button_to "Editar Dados", edit_user_registration_path, class: "btn btn-light m-1", method: :get %>
+    <li><%= button_to "Logout", destroy_user_session_path, method: :get, class: "btn btn-outline-danger m-1" %> </li>
+  <% else %>
+    <li><%= button_to "Entrar", new_user_session_path, class: "btn btn-danger" %> </li>
+    <li><%= button_to "Cadastre-se", new_user_registration_path, method: :get, class: "btn btn-outline-danger mx-2" %>
+    <% end %>
+  </ul>
+  <% if current_user %>
+    <%= image_tag(current_user.avatar_url, width: "5%", class: "mx-2") %>
+  <% end %>
+</nav>
