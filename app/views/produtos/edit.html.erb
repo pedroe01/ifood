@@ -1,0 +1,10 @@
+<h1>Editing produto</h1>
+
+<%= render "form", produto: @produto %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar produto", @produto, class: 'btn btn-dark' %> |
+  <%= link_to "Voltar para produtos", produtos_path %>
+</div>

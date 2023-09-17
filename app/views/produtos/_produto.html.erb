@@ -1,0 +1,28 @@
+<div id="<%= dom_id produto %>">
+  <tr>
+    <td>
+      <strong>Nome:</strong>
+      <%= produto.nome %>
+    </td>
+
+    <td>
+      <strong>Img:</strong>
+      <%= produto.img.present? ? "Sim" : "Não" %>
+    </td>
+
+    <td>
+      <strong>Descricao:</strong>
+      <%= produto.descricao %>
+    </td>
+
+    <td>
+      <strong>Valor:</strong>
+      <%= produto.valor %>
+    </td>
+
+    <td>
+      <strong>Categoria:</strong>
+      <%= produto.categoria %>
+    </td>
+  </tr>
+</div>

@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Produtos</h1>
+
+<%= link_to "Novo produto", new_produto_path, class: 'btn btn-primary' %>
+
+<div id="produtos">
+<br>
+  <% @produtos.each do |produto| %>
+    <%= render produto %>
+    <p>
+      <%= link_to "Mostrar produto", produto, class: 'btn btn-dark' %>
+    </p>
+  <% end %>
+</div>
+
+
