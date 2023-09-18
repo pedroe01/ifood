@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @produtos = Produto.all
+    @produtos = Produto.search(params[:search])
   end
 end

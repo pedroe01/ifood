@@ -34,8 +34,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link btn btn-light m-1" href="#">Entregador</span></a>
+    <li class="nav-item active">
+      <a class="nav-link btn btn-light m-1" href=<%= root_path %>>Dever's Food</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link btn btn-light m-1" href="#">Entregador</a>
     </li>
     <li class="nav-item">
       <a class="nav-link btn btn-light m-1" href="#">Restaurante e Mercado</a>
@@ -43,13 +46,11 @@
     <li class="nav-item">
       <a class="nav-link btn btn-light m-1" href="#">Carreiras</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link btn btn-light m-1" href="#">iFood Card</a>
-    </li>
   </ul>
 </div>
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? || current_user %>
+    <%= button_to "Produtos", produtos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Editar Dados", edit_user_registration_path, class: "btn btn-light m-1", method: :get %>
     <li><%= button_to "Logout", destroy_user_session_path, method: :get, class: "btn btn-outline-danger m-1" %> </li>
   <% else %>
