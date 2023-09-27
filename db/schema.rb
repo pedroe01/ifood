@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_17_135013) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_26_003127) do
+  create_table "enderecos", force: :cascade do |t|
+    t.integer "users_id"
+    t.string "endereco"
+    t.string "tipo_endereco"
+    t.string "complemento"
+    t.string "numero"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_enderecos_on_users_id"
+  end
+
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.string "img"
@@ -37,4 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_17_135013) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "enderecos", "users", column: "users_id"
 end
