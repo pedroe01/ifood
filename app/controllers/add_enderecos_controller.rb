@@ -3,7 +3,7 @@ class AddEnderecosController < ApplicationController
 
   # GET /add_enderecos or /add_enderecos.json
   def index
-    @add_enderecos = AddEndereco.all
+    @enderecos = AddEndereco.all
   end
 
   # GET /add_enderecos/1 or /add_enderecos/1.json
@@ -25,7 +25,7 @@ class AddEnderecosController < ApplicationController
 
     respond_to do |format|
       if @add_endereco.save
-        format.html { redirect_to add_endereco_url(@add_endereco), notice: "Add endereco was successfully created." }
+        format.html { redirect_to add_endereco_url(@add_endereco), notice: "Endereço adicionado com sucesso." }
         format.json { render :show, status: :created, location: @add_endereco }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class AddEnderecosController < ApplicationController
   def update
     respond_to do |format|
       if @add_endereco.update(add_endereco_params)
-        format.html { redirect_to add_endereco_url(@add_endereco), notice: "Add endereco was successfully updated." }
+        format.html { redirect_to add_endereco_url(@add_endereco), notice: "Endereço atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @add_endereco }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class AddEnderecosController < ApplicationController
     @add_endereco.destroy
 
     respond_to do |format|
-      format.html { redirect_to add_enderecos_url, notice: "Add endereco was successfully destroyed." }
+      format.html { redirect_to add_enderecos_url, notice: "Endereço removido com sucesso." }
       format.json { head :no_content }
     end
   end
