@@ -1,0 +1,2 @@
+class AddEndereco < ApplicationRecord
+end
