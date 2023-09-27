@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  get 'carts/show'
   resources :produtos
   root to: "home#index"
   devise_for :users, controllers: {
