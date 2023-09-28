@@ -10,16 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_26_003127) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_193057) do
   create_table "enderecos", force: :cascade do |t|
-    t.integer "users_id"
     t.string "endereco"
     t.string "tipo_endereco"
     t.string "complemento"
-    t.string "numero"
+    t.integer "numero"
+    t.integer "users_id"
+    t.integer "parceiros_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["parceiros_id"], name: "index_enderecos_on_parceiros_id"
     t.index ["users_id"], name: "index_enderecos_on_users_id"
+  end
+
+  create_table "formapagamento", force: :cascade do |t|
+    t.string "forma_pagamento"
+    t.string "numero_cartao"
+    t.string "validade_cartao"
+    t.string "codigo_seguranca_cartao"
+    t.string "nome_impresso_cartao"
+    t.integer "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_formapagamento_on_users_id"
+  end
+
+  create_table "itenspedido", force: :cascade do |t|
+    t.integer "pedidos_id"
+    t.integer "produtos_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pedidos_id"], name: "index_itenspedido_on_pedidos_id"
+    t.index ["produtos_id"], name: "index_itenspedido_on_produtos_id"
+  end
+
+  create_table "parceiros", force: :cascade do |t|
+    t.string "nome"
+    t.float "nota"
+    t.string "avaliacao"
+    t.float "valor_frete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pedidos", force: :cascade do |t|
+    t.float "valor"
+    t.integer "users_id"
+    t.integer "enderecos_id"
+    t.integer "parceiros_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enderecos_id"], name: "index_pedidos_on_enderecos_id"
+    t.index ["parceiros_id"], name: "index_pedidos_on_parceiros_id"
+    t.index ["users_id"], name: "index_pedidos_on_users_id"
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -48,5 +92,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_003127) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "enderecos", "users", column: "users_id"
 end
