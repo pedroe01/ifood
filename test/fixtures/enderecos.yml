@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  endereco: MyString
+  tipo_endereco: MyString
+  complemento: MyString
+  numero: 1
+
+two:
+  endereco: MyString
+  tipo_endereco: MyString
+  complemento: MyString
+  numero: 1

@@ -1,2 +1,0 @@
-class AddEndereco < ApplicationRecord
-end

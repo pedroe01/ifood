@@ -50,6 +50,7 @@
 </div>
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? || current_user %>
+    <%= button_to "Meus Endereços", enderecos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Produtos", produtos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Editar Dados", edit_user_registration_path, class: "btn btn-light m-1", method: :get %>
     <li><%= button_to "Logout", destroy_user_session_path, method: :get, class: "btn btn-outline-danger m-1" %> </li>
