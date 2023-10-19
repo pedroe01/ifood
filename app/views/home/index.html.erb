@@ -7,6 +7,7 @@
     </div>
   </div>
 </header>
+<%= js_map [{latitude: 37.7829, longitude: -122.4190}] %>
 <!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
@@ -14,7 +15,7 @@
       <h5>Procurar produtos:</h5>
       <%= form_tag(root_path, method: :get) do %>
         <%= text_field_tag(:search, params[:search]) %>
-      <% end %> 
+      <% end %>
     </div> <br>
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
       <% @produtos.each do |prod| %>

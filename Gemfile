@@ -83,7 +83,11 @@ gem "devise"
 
 gem "bcrypt"
 
-gem 'oj'
+gem "oj"
+
+gem "mapkick-rb"
+
+gem "twilio-ruby"
 
 # Using Omniauth to login with Facebook and Google
 gem "omniauth"
