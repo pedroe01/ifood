@@ -7,7 +7,9 @@
     </div>
   </div>
 </header>
-<%= js_map [{latitude: 37.7829, longitude: -122.4190}] %>
+<div class="justify-content-center">
+  <%= js_map [{latitude: Endereco.where(users_id: current_user.id).first.lat, longitude: Endereco.where(users_id: current_user.id).first.lon}], height: "400px" %>
+</div>
 <!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">

@@ -23,6 +23,10 @@ class EnderecosController < ApplicationController
   def create
     @endereco = Endereco.new(endereco_params)
     @endereco.users_id = current_user.id
+    completo = "#{@endereco['endereco']}, #{@endereco['numero']}, #{@endereco['cep']}, Brasil"
+    coords = Geocoder.search(completo).first.coordinates
+    @endereco.lat = coords[0]
+    @endereco.lon = coords[1]
 
     respond_to do |format|
       if @endereco.save
@@ -66,6 +70,6 @@ class EnderecosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def endereco_params
-      params.require(:endereco).permit(:endereco, :tipo_endereco, :complemento, :numero)
+      params.require(:endereco).permit(:endereco, :tipo_endereco, :complemento, :numero, :cep)
     end
 end

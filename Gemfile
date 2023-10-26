@@ -89,6 +89,8 @@ gem "mapkick-rb"
 
 gem "twilio-ruby"
 
+gem "geocoder"
+
 # Using Omniauth to login with Facebook and Google
 gem "omniauth"
 

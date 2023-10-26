@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_193057) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_163906) do
   create_table "enderecos", force: :cascade do |t|
     t.string "endereco"
     t.string "tipo_endereco"
@@ -20,6 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_193057) do
     t.integer "parceiros_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cep"
+    t.float "lat"
+    t.float "lon"
     t.index ["parceiros_id"], name: "index_enderecos_on_parceiros_id"
     t.index ["users_id"], name: "index_enderecos_on_users_id"
   end
