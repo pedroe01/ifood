@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_163906) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_09_022104) do
+  create_table "carrinhos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "enderecos", force: :cascade do |t|
     t.string "endereco"
     t.string "tipo_endereco"
@@ -46,6 +51,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_163906) do
     t.datetime "updated_at", null: false
     t.index ["pedidos_id"], name: "index_itenspedido_on_pedidos_id"
     t.index ["produtos_id"], name: "index_itenspedido_on_produtos_id"
+  end
+
+  create_table "itenspedidos", force: :cascade do |t|
+    t.integer "produto_id", null: false
+    t.integer "carrinho_id", null: false
+    t.integer "qtd"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carrinho_id"], name: "index_itenspedidos_on_carrinho_id"
+    t.index ["produto_id"], name: "index_itenspedidos_on_produto_id"
   end
 
   create_table "parceiros", force: :cascade do |t|
@@ -95,4 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_163906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "itenspedidos", "carrinhos"
+  add_foreign_key "itenspedidos", "produtos"
 end

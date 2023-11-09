@@ -1,0 +1,37 @@
+<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+  <% @carrinho.itenspedido.each do |item| %>
+    <% prod = item.produto %>
+
+    <div id="<%= "carrinho-#{prod.id}" %>" class="col mb-4">
+      <div class="card h-100">
+        <!-- Product image-->
+        <img class="card-img-top" style="max-height:150px; object-fit:cover" src=<%= prod.img %> alt=<%= prod.descricao %> />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder"><%= prod.nome %></h5>
+            <h7><%= prod.descricao %></h7><br>
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <!-- Product price-->
+          <div class="text-center">
+            <p class="btn btn-success mt-auto" > R$ <%= sprintf('%.2f', prod.valor).to_s.gsub('.', ',') %> </p></div>
+            <div class="text-center flex-colum">
+            <%= form_with(url: 'carrinho/add') do |f| %>
+              <%= f.hidden_field :id, value: prod.id %>
+              <%= f.number_field :qtd, value: item.qtd, min: 0 %>
+              <%= f.submit "+", class: "btn btn-outline-success" %>
+            <% end %>
+            <%= form_with(url: 'carrinho/remove') do |f| %>
+              <%= f.hidden_field :id, value: item.id %>
+              <%= f.submit "-", class: "btn btn-outline-danger mt-auto" %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

@@ -49,6 +49,7 @@
   </ul>
 </div>
 <ul class="nav navbar-nav navbar-right">
+  <li><%= button_to " Carrinho", "carrinho", class: "bi bi-cart btn btn-danger mx-1", method: :get %></li>
   <% if user_signed_in? || current_user %>
     <%= button_to "Meus Endereços", enderecos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Produtos", produtos_path, class: "btn btn-light m-1", method: :get %>

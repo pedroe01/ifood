@@ -42,7 +42,12 @@
               <!-- Product price-->
               <div class="text-center">
                 <p class="btn btn-success mt-auto" > R$ <%= sprintf('%.2f', prod.valor).to_s.gsub('.', ',') %> </p></div>
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a></div>
+                <%= form_with(url: 'carrinho/add') do |f| %>
+                  <%= f.hidden_field :id, value: prod.id %>
+                  <%= f.number_field :qtd, value: 1, min: 1 %>
+                  <%= f.submit "Adicionar ao Carrinho", class: "btn btn-outline-dark mt-auto" %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

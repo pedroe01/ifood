@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "carrinho" do %>
+  <h1>Carrinho</h1>
+  <% if @carrinho.itenspedido.count > 0 %>
+    <%= render "carrinho/itenspedido" %>
+    <h2 class="text-center">Total: <%= @carrinho.total %></h2>
+  <% else %>
+    <p>Seu carrinho está vazio</p>
+  <% end %>
+<% end %>

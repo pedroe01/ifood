@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'carrinho', to: 'carrinho#show'
+  post 'carrinho/add'
+  post 'carrinho/remove'
   resources :enderecos
   resources :produtos
   root to: "home#index"
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
     sessions:           'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
