@@ -14,6 +14,15 @@ class CarrinhoController < ApplicationController
     else
       @carrinho.itenspedido.create(produto: @produto, qtd:)
     end
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace('carrinho', partial: 'carrinho/itenspedido', locals: {carrinho: @carrinho}),
+          turbo_stream.replace(@produto),
+        ]
+      end
+    end
   end
 
   def remove

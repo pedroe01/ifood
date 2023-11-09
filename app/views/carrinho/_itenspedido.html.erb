@@ -5,13 +5,13 @@
     <div id="<%= "carrinho-#{prod.id}" %>" class="col mb-4">
       <div class="card h-100">
         <!-- Product image-->
-        <img class="card-img-top" style="max-height:150px; object-fit:cover" src=<%= prod.img %> alt=<%= prod.descricao %> />
+        <img class="card-img-top" style="max-height:120px; object-fit:cover" src=<%= prod.img %> alt=<%= prod.descricao %> />
         <!-- Product details-->
         <div class="card-body p-4">
           <div class="text-center">
             <!-- Product name-->
             <h5 class="fw-bolder"><%= prod.nome %></h5>
-            <h7><%= prod.descricao %></h7><br>
+            <h6><%= prod.descricao %></h7><br>
           </div>
         </div>
         <!-- Product actions-->
@@ -19,15 +19,15 @@
           <!-- Product price-->
           <div class="text-center">
             <p class="btn btn-success mt-auto" > R$ <%= sprintf('%.2f', prod.valor).to_s.gsub('.', ',') %> </p></div>
-            <div class="text-center flex-colum">
-            <%= form_with(url: 'carrinho/add') do |f| %>
+            <div class="container px-4 px-lg-5 my-5 d-flex justify-content-center">
+            <%= form_with(url: 'carrinho/add', class: 'text-center') do |f| %>
               <%= f.hidden_field :id, value: prod.id %>
-              <%= f.number_field :qtd, value: item.qtd, min: 0 %>
-              <%= f.submit "+", class: "btn btn-outline-success" %>
+              <%= f.submit "+", class: "btn btn-outline-success mx-1" %>
+              <%= f.number_field :qtd, value: item.qtd, min: 0, style: 'max-width:50px', class: 'mx-1'%>
             <% end %>
-            <%= form_with(url: 'carrinho/remove') do |f| %>
+            <%= form_with(url: 'carrinho/remove', class: 'text-center') do |f| %>
               <%= f.hidden_field :id, value: item.id %>
-              <%= f.submit "-", class: "btn btn-outline-danger mt-auto" %>
+              <%= f.submit "-", class: "btn btn-outline-danger mx-1" %>
             <% end %>
             </div>
           </div>
