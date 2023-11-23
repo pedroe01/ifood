@@ -1,13 +1,13 @@
-<%= turbo_frame_tag "carrinho" do %>
+<%= turbo_frame_tag "pedido" do %>
 <header class="bg-danger py-1 mb-5">
   <div class="container px-4 px-lg-5 my-5 d-flex justify-content-center">
-    <h1 class="display-3 fw-bolder text-center mx-2">Seu Carrinho</h1>
+    <h1 class="display-3 fw-bolder text-center mx-2">Detalhes do Pedido</h1>
     <i class="bi bi-cart display-3 mx-2"></i>
   </div>
 </header>
   <% if @carrinho.itenspedido.count > 0 %>
-    <h2 class="text-center">Total: <%= @carrinho.total.round(2) %></h2>
-    <%= render "carrinho/itenspedido" %>
+    <h2 class="text-center mb-5">Total: <%= @carrinho.total.round(2) + 7.90 %></h2>
+    <%= render "pedido/itenspedidosmall" %>
   <% else %>
     <h3 class="d-flex justify-content-center">Seu carrinho está vazio</h3>
   <% end %>

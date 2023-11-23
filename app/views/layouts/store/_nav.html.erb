@@ -50,14 +50,18 @@
 </div>
 <ul class="nav navbar-nav navbar-right">
   <li><%= button_to " Carrinho", "carrinho", class: "bi bi-cart btn btn-danger m-1", method: :get %></li>
+  <% if @carrinho.itenspedido.count > 0 %>
+  <%= button_to "Finalizar Pedido", 'pedido#show', class: "btn btn-success m-1", method: :get %>
+  <% end %>
   <% if user_signed_in? || current_user %>
-    <%= button_to "Meus Endereços", enderecos_path, class: "btn btn-light m-1", method: :get %>
+    <%= button_to "Pagamento", formapagamentos_path, class: "btn btn-light m-1", method: :get %>
+    <%= button_to "Endereços", enderecos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Produtos", produtos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Editar Dados", edit_user_registration_path, class: "btn btn-light m-1", method: :get %>
     <li><%= button_to "Logout", destroy_user_session_path, method: :get, class: "btn btn-outline-danger m-1" %> </li>
   <% else %>
-    <li><%= button_to "Entrar", new_user_session_path, class: "btn btn-danger" %> </li>
-    <li><%= button_to "Cadastre-se", new_user_registration_path, method: :get, class: "btn btn-outline-danger mx-2" %>
+    <li><%= button_to "Entrar", new_user_session_path, class: "btn btn-danger m-1" %> </li>
+    <li><%= button_to "Cadastre-se", new_user_registration_path, method: :get, class: "btn btn-outline-danger m-1" %>
     <% end %>
   </ul>
   <% if current_user %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Formas de pagamento</h1>
+
+<div id="formapagamentos">
+  <% @formapagamentos.each do |formapagamento| %>
+    <%= render formapagamento %>
+    <p>
+      <%= link_to "Mostrar essa forma de pagamento", formapagamento %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Nova forma de pagamento", new_formapagamento_path %>

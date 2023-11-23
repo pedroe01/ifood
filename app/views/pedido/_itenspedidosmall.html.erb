@@ -1,0 +1,69 @@
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-default">
+        <h5 class="card-header">
+          Carrinho
+          <i class="bi bi-cart"></i>
+        </h5>
+        <% @carrinho.itenspedido.each do |item| %>
+          <% prod = item.produto %>
+          <div class="card-body">
+            <%= prod.nome %> | <%= prod.valor %> | <%= item.qtd %>x | <%= item.total %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-default">
+        <h5 class="card-header">
+          Endereço de Entrega
+          <i class="bi bi-house"></i>
+        </h5>
+        <div class="card-body">
+         <%= current_user.enderecos %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-default">
+        <h5 class="card-header">
+          Tipo de Entrega
+          <i class="bi bi-bicycle"></i>
+        </h5>
+        <div class="card-body">
+         Entrega Padrão | R$ 7,90
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-default">
+        <h5 class="card-header">
+          Forma de Pagamento
+        <i class="bi bi-postcard"></i>
+        </h5>
+        <div class="card-body">
+         <%= current_user.formapagamento.first.forma_pagamento%>
+        </div>
+        <div class="card-body">
+         Final <%= current_user.formapagamento.first.numero_cartao.split(' ').last%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

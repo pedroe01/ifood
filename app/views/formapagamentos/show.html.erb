@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @formapagamento %>
+
+<div>
+  <%= link_to "Editar essa formas de pagamento", edit_formapagamento_path(@formapagamento) %> |
+  <%= link_to "Voltar para formas de pagamento", formapagamentos_path %>
+
+  <%= button_to "Remover essa forma de pagamento", @formapagamento, method: :delete %>
+</div>

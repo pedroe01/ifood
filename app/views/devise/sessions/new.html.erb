@@ -1,18 +1,25 @@
-<h2>Entrar</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
+<header class="bg-danger py-1 mb-3">
+  <div class="container px-4 px-lg-5 my-5 d-flex justify-content-center">
+    <h1 class="display-3 fw-bolder text-center mx-2">Entrar</h1>
+    <i class="bi bi-box-arrow-in-right display-3 mx-2"></i>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+</header>
+<div class="container px-4 px-lg-5 my-5 d-flex justify-content-center">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'justify-content-center') do |f| %>
+    <div class="form-inputs justify-content-center">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" } %>
+    </div>
+    <div class="form-actions justify-content-center">
+      <%= f.button :submit, "Log in", class: "btn btn-outline-danger text-center justify-content-center" %>
+    </div>
+  <% end %>
+</div>
 
 <%= render "devise/shared/links" %>

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'carrinho', to: 'carrinho#show'
   post 'carrinho/add'
   post 'carrinho/remove'
+  get 'relatorios', to: 'relatorios#show'
+  get 'pedido', to: 'pedido#show'
+  resources :formapagamentos
   resources :enderecos
   resources :produtos
   root to: "home#index"

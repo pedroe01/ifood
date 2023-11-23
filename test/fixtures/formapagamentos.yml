@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  forma_pagamento: MyString
+  numero_cartao: MyString
+  validade_cartao: MyString
+  codseguranca: MyString
+  nomeimpresso: MyString
+  user: one
+
+two:
+  forma_pagamento: MyString
+  numero_cartao: MyString
+  validade_cartao: MyString
+  codseguranca: MyString
+  nomeimpresso: MyString
+  user: two

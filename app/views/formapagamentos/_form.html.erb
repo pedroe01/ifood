@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@formapagamento) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :forma_pagamento %>
+    <%= f.input :numero_cartao %>
+    <%= f.input :validade_cartao %>
+    <%= f.input :codseguranca %>
+    <%= f.input :nomeimpresso %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
