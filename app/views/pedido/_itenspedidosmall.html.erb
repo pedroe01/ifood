@@ -26,7 +26,12 @@
           <i class="bi bi-house"></i>
         </h5>
         <div class="card-body">
-         <%= current_user.enderecos %>
+          <div class="btn-group-vertical">
+            <% current_user.enderecos.each_with_index do |e, idx| %>
+              <input type="radio" class="btn-check" name="select-endereco" id=<%= "endereco-#{idx}" %> autocomplete="off">
+              <label class="btn btn-outline-danger" for=<%= "endereco-#{idx}" %>><%= "#{e.endereco}, #{e.numero} - #{e.cep}" %></label>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -42,7 +47,14 @@
           <i class="bi bi-bicycle"></i>
         </h5>
         <div class="card-body">
-         Entrega Padrão | R$ 7,90
+          <div class="btn-group-vertical">
+            <input type="radio" class="btn-check" name="select-entrega" id="danger-outlined1" autocomplete="off" value="7,90">
+            <label class="btn btn-outline-danger" for="danger-outlined1">Entrega Padrão | R$ 7,90</label>
+            <input type="radio" class="btn-check" name="select-entrega" id="danger-outlined2" autocomplete="off" value="15,90">
+            <label class="btn btn-outline-danger" for="danger-outlined2">Entrega Expressa | R$ 15,90</label>
+            <input type="radio" class="btn-check" name="select-entrega" id="danger-outlined3" autocomplete="off" value="0">
+            <label class="btn btn-outline-danger" for="danger-outlined3">Retirar no local | Grátis</label>
+          </div>
         </div>
       </div>
     </div>
@@ -58,11 +70,27 @@
         <i class="bi bi-postcard"></i>
         </h5>
         <div class="card-body">
-         <%= current_user.formapagamento.first.forma_pagamento%>
+          <div class="btn-group-vertical">
+            <% current_user.formapagamento.each_with_index do |fp, idx| %>
+              <input type="radio" class="btn-check" name="pagamento" id=<%= "fpag-#{idx}" %> autocomplete="off">
+              <label class="btn btn-outline-danger" for=<%= "fpag-#{idx}" %>><%= "#{fp.forma_pagamento} | Final #{fp.numero_cartao.split(' ').last}" %></label>
+            <% end %>
+          </div>
         </div>
-        <div class="card-body">
-         Final <%= current_user.formapagamento.first.numero_cartao.split(' ').last%>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-default">
+        <% if current_user %>
+          <% if Endereco.where(user_id: current_user.id).present? %>
+            <%= js_map [{latitude: Endereco.where(user_id: current_user.id)&.first&.lat, longitude: Endereco.where(user_id: current_user.id)&.first&.lon}, {latitude: -23.5603666, longitude: -46.658026315}], height: "400px" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ class EnderecosController < ApplicationController
 
   # GET /enderecos or /enderecos.json
   def index
-    @enderecos = Endereco.where(users_id: current_user.id)
+    @enderecos = Endereco.where(user_id: current_user.id)
   end
 
   # GET /enderecos/1 or /enderecos/1.json
@@ -22,7 +22,7 @@ class EnderecosController < ApplicationController
   # POST /enderecos or /enderecos.json
   def create
     @endereco = Endereco.new(endereco_params)
-    @endereco.users_id = current_user.id
+    @endereco.user_id = current_user.id
     completo = "#{@endereco['endereco']}, #{@endereco['numero']}, #{@endereco['cep']}, Brasil"
     coords = Geocoder.search(completo).first.coordinates
     @endereco.lat = coords[0]

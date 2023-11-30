@@ -7,13 +7,7 @@
     </div>
   </div>
 </header>
-<div class="justify-content-center">
-<% if current_user %>
-  <% if Endereco.where(users_id: current_user.id).present? %>
-    <%= js_map [{latitude: Endereco.where(users_id: current_user.id)&.first&.lat, longitude: Endereco.where(users_id: current_user.id)&.first&.lon}, {latitude: -23.5603666, longitude: -46.658026315}], height: "400px" %>
-  <% end %>
-<% end %>
-</div>
+
 <!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">

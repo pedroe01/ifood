@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_23_215418) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_30_171753) do
   create_table "carrinhos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,15 +21,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_215418) do
     t.string "tipo_endereco"
     t.string "complemento"
     t.integer "numero"
-    t.integer "users_id"
     t.integer "parceiros_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cep"
     t.float "lat"
     t.float "lon"
+    t.integer "user_id", null: false
     t.index ["parceiros_id"], name: "index_enderecos_on_parceiros_id"
-    t.index ["users_id"], name: "index_enderecos_on_users_id"
+    t.index ["user_id"], name: "index_enderecos_on_user_id"
   end
 
   create_table "formapagamento", force: :cascade do |t|
@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_215418) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "enderecos", "users"
   add_foreign_key "formapagamentos", "users"
   add_foreign_key "itenspedidos", "carrinhos"
   add_foreign_key "itenspedidos", "produtos"

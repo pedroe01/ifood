@@ -49,11 +49,11 @@
   </ul>
 </div>
 <ul class="nav navbar-nav navbar-right">
-  <li><%= button_to " Carrinho", "carrinho", class: "bi bi-cart btn btn-danger m-1", method: :get %></li>
-  <% if @carrinho.itenspedido.count > 0 %>
-  <%= button_to "Finalizar Pedido", 'pedido#show', class: "btn btn-success m-1", method: :get %>
-  <% end %>
   <% if user_signed_in? || current_user %>
+    <li><%= button_to " Carrinho", "carrinho", class: "bi bi-cart btn btn-danger m-1", method: :get %></li>
+    <% if @carrinho.itenspedido.count > 0 %>
+    <%= button_to "Finalizar Pedido", 'pedido#show', class: "btn btn-success m-1", method: :get %>
+    <% end %>
     <%= button_to "Pagamento", formapagamentos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Endereços", enderecos_path, class: "btn btn-light m-1", method: :get %>
     <%= button_to "Produtos", produtos_path, class: "btn btn-light m-1", method: :get %>

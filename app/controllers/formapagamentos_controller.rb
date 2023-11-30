@@ -3,7 +3,7 @@ class FormapagamentosController < ApplicationController
 
   # GET /formapagamentos or /formapagamentos.json
   def index
-    @formapagamentos = Formapagamento.all
+    @formapagamentos = Formapagamento.where(user_id: current_user.id)
   end
 
   # GET /formapagamentos/1 or /formapagamentos/1.json
